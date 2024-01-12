@@ -13,7 +13,7 @@ Welcome to User Promo! This Laravel 8 application is designed for user referral 
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone <my-cool-project>
+    git clone https://github.com/sudeeshmj/laravel-userpromo.git
     ```
 
 2. Install project dependencies:
