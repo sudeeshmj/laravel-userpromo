@@ -62,9 +62,9 @@ class AuthController extends Controller
         //save refereal details
         if( !empty($refernce_code)){
             $ref_user= new ReferralUser();
-            $ref_user->referral_code = $refernce_code;
+            $ref_user->ref_id = $refernce_code;
             $ref_user->user_id = $user->id;
-            $user->save();
+            $ref_user->save();
             
             //level and point update
                 $level =  $referal_user->level+1;
