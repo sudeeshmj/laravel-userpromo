@@ -25,7 +25,7 @@ Welcome to User Promo! This Laravel 8 application is designed for user referral 
 3. Copy the `.env.example` file and create a new `.env` file:
 
     ```bash
-    cp .env.example .env
+    copy .env.example .env
     ```
 
 4. Generate an application key:
