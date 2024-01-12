@@ -60,23 +60,23 @@ class AuthController extends Controller
         Auth::login($user);
 
         //save refereal details
-    
-        $ref_user= new ReferralUser();
-        $ref_user->referral_code = $refernce_code;
-        $ref_user->user_id = $user->id;
-        $user->save();
-        
-        //level and point update
-            $level =  $referal_user->level+1;
-            $point_row = ReferralPoint::find($level);
-            $score=0;
-            if($point_row){
-                $score = $point_row->points;
-            }
-        $referal_user->level = $level;
-        $referal_user->points += $score;
-        $referal_user->update();
-
+        if( !$referal_user){
+            $ref_user= new ReferralUser();
+            $ref_user->referral_code = $refernce_code;
+            $ref_user->user_id = $user->id;
+            $user->save();
+            
+            //level and point update
+                $level =  $referal_user->level+1;
+                $point_row = ReferralPoint::find($level);
+                $score=0;
+                if($point_row){
+                    $score = $point_row->points;
+                }
+            $referal_user->level = $level;
+            $referal_user->points += $score;
+            $referal_user->update();
+        }
 
         return redirect()->route('user.dashboard');
     }
