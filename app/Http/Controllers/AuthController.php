@@ -60,7 +60,7 @@ class AuthController extends Controller
         Auth::login($user);
 
         //save refereal details
-        if( !$referal_user){
+        if( !empty($refernce_code)){
             $ref_user= new ReferralUser();
             $ref_user->referral_code = $refernce_code;
             $ref_user->user_id = $user->id;
